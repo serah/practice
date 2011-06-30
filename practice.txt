@@ -1,0 +1,84 @@
+#CALCULATOR
+
+import sys
+   
+def input():
+    x = float(raw_input("enter first number: "))
+    y = float(raw_input("enter second number: "))
+    print ""
+    operations(x,y)
+    
+def options():
+	print """
+	operations:
+	addition : +
+	subtraction : -
+	division : /
+	multiplication : * 
+	to exit calculator : exit """
+	print ""
+	
+def addition(x,y):
+    """Adds two numbers x and y."""
+    return x + y
+    
+def subtraction(x,y):
+    return x - y
+
+def multiplication(x,y):
+    return x * y
+    
+def division(x,y):
+    return x / y
+
+def operations(x,y):
+   
+    op = raw_input(" enter the operation to be performed: ")
+    if op=='+':
+        answer = addition(x,y)
+        print "answer: ", answer
+        reuse(answer)
+    elif op=="-":
+        answer = subtraction(x,y)
+        print "answer: ", answer
+        reuse(answer)
+    elif op=="*":
+        answer = multiplication(x,y)
+        print "answer: ", answer        
+        reuse(answer)
+    elif op=="/":
+        answer = division(x,y)
+        print "answer: ", answer
+        reuse(answer)
+    elif op=="exit":
+        print " thank you for using python calculator!"
+        sys.exit()
+
+def new():
+    option = raw_input(" do you want to perform fresh operations? enter yes or no: ")
+    if option=='yes':
+        input()
+    elif option=='no':
+        print " thank you for using python calculator!"
+        sys.exit()
+
+
+def reuse(answer):
+    use=raw_input("do you want to use the answer for more operations? ")
+    if use=='yes':
+        sec_num=int(raw_input("enter second number "))
+        operations(answer,sec_num)
+    elif use=='no':
+        new()
+    
+	
+	
+
+if __name__ == "__main__":
+     
+	options()
+	input()
+	reuse()
+
+	print " thank you!"
+
