@@ -1,0 +1,24 @@
+print """
+      The computer will select a random number
+      you just need to guess it!
+      """
+import random
+def initial():
+    number=random.randrange(1,100)
+    guess=int(raw_input(" Guess a random number between 0 and 100: "))
+    options(guess,number)
+def options(guess,number):
+    if guess==number:
+        print "Congratulations! You just guessed the right number!"
+    elif number -5 <guess < number+5:
+        guess=int(raw_input( "you're very close, enter number: "))
+        options(guess,number)
+    elif number-10 < guess <number +10:
+        guess = int(raw_input( "pretty close,guess again :"))
+        options(guess,number)
+    else:
+        guess = int(raw_input(" give it another random try: "))
+        options(guess,number)
+
+initial()
+              
